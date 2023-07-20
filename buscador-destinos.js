@@ -67,3 +67,29 @@ function mostrarDestinosPresupuesto(presupuesto) {
 
 const presupuestoCliente = 162;
 mostrarDestinosPresupuesto(presupuestoCliente);
+
+/* Mostrar ciudades disponibles según tipo de turismo */
+
+function mostrarCiudadesPorTipoTurismo (tipo){
+  console.log(``);
+  console.log(`----------------------------| Ciudades donde puedes hacer Turismo de ${tipo} |----------------------------`);
+  let ciudadesEncontradasTipoTurismo = false;
+
+  destinosDeViaje.forEach((destinoTipo) => {
+    if (destinoTipo.tipoTurismo.includes(tipo)) {
+      console.log(`...........................................................................`);
+      console.log(`Ciudad: ${destinoTipo.nombre}`);
+      console.log(`Actividades: ${destinoTipo.actividades}`);
+      console.log(`Costo: $${destinoTipo.costo}`);
+      console.log(`Clima: ${destinoTipo.clima}`);
+      ciudadesEncontradasTipoTurismo = true;
+    }
+    
+  });
+  if (!ciudadesEncontradasTipoTurismo) {
+    console.log(`No se encontraron ciudades disponibles para el tipo de turismo indicado.`);
+  }
+}
+
+const tipoTurismoIndicado ="Convenciones";
+mostrarCiudadesPorTipoTurismo(tipoTurismoIndicado);
